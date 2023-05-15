@@ -21,11 +21,15 @@ public class MainPage {
     // Кнопка Начинки в конструкторе
     private final By filingsButton = By.xpath(".//div/span[text()='Начинки']");
     // Краторная булка
-    private final By creatorBread = By.xpath(".//p[text()='Краторная булка N-200i']");
+    private final By breadButtonClick=By.xpath(".//p[text()='Краторная булка N-200i']");
+    private final By creatorBread = By.xpath("(.//p[text()='Краторная булка N-200i'])[2]");
     // Соус Традиционный галактический
-    private final By galaxySauce = By.xpath(".//p[text()='Соус традиционный галактический']");
+    private final By galaxySauce= By.xpath("(.//p[text()='Соус традиционный галактический'])[2]");
+    private final By galaxySauceClick = By.xpath(".//p[text()='Соус традиционный галактический']");
     // Филе Люминесцентного тетраодонтимформа
-    private final By luminFiling = By.xpath(".//p[text()='Филе Люминесцентного тетраодонтимформа']");
+    private final By luminFiling=By.xpath("(.//p[text()='Филе Люминесцентного тетраодонтимформа'])[2]");
+    private final By luminFilingClick = By.xpath(".//p[text()='Филе Люминесцентного тетраодонтимформа']");
+
     private final WebDriver driver;
     private static final String url = "https://stellarburgers.nomoreparties.site/";
 
@@ -58,15 +62,15 @@ public class MainPage {
     }
 
     public void clickBreadButton() {
-        driver.findElement(breadButton).click();
+        driver.findElement(breadButtonClick).click();
     }
 
     public void clickSauceButton() {
-        driver.findElement(sauceButton).click();
+        driver.findElement(galaxySauceClick).click();
     }
 
     public void clickFilingsButton() {
-        driver.findElement(filingsButton).click();
+        driver.findElement(luminFilingClick).click();
     }
 
     public String getTextCratorBread() {
