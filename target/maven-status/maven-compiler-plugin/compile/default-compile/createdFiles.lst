@@ -1,0 +1,6 @@
+pages\RegistrationPage.class
+pages\AccountPage.class
+pages\PasswordPage.class
+pages\LoginPage.class
+BaseTest.class
+pages\MainPage.class
