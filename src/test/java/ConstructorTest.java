@@ -2,10 +2,7 @@ import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import pages.MainPage;
-
-import static org.junit.Assert.assertEquals;
 
 public class ConstructorTest extends BaseTest {
     MainPage mainPage = new MainPage(getDriver());
@@ -20,21 +17,23 @@ public class ConstructorTest extends BaseTest {
     public void clickOnBread() {
         mainPage.clickSauceButton();
         mainPage.clickBreadButton();
-        assertEquals("Краторная булка N-200i", mainPage.getTextCratorBread());
+        mainPage.checkBunsIsDisplayed();
     }
 
     @Test
     @DisplayName("Проверка перехода на вкладку Соусы")
     public void clickOnSauce() {
         mainPage.clickSauceButton();
-        assertEquals("Соус традиционный галактический", mainPage.getTextGalaxySauce());
+        mainPage.checkSaucesIsDisplayed();
+
     }
 
     @Test
     @DisplayName("Проверка перехода на вкладку Начинки")
     public void clickOnFiling() {
         mainPage.clickFilingsButton();
-        assertEquals("Филе Люминесцентного тетраодонтимформа", mainPage.getTextLuminFiling());
+        mainPage.checkFillingsIsDisplayed();
+
     }
 
     @After

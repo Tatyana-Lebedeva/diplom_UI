@@ -3,6 +3,9 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class MainPage {
     // Кнопка "Личный кабинет"
     private final By personalAccount = By.xpath(".//p[text()='Личный Кабинет']");
@@ -20,12 +23,6 @@ public class MainPage {
     private final By sauceButton = By.xpath(".//div/span[text()='Соусы']");
     // Кнопка Начинки в конструкторе
     private final By filingsButton = By.xpath(".//div/span[text()='Начинки']");
-    // Краторная булка
-    private final By creatorBread = By.xpath(".//p[text()='Краторная булка N-200i']");
-    // Соус Традиционный галактический
-    private final By galaxySauce = By.xpath(".//p[text()='Соус традиционный галактический']");
-    // Филе Люминесцентного тетраодонтимформа
-    private final By luminFiling = By.xpath(".//p[text()='Филе Люминесцентного тетраодонтимформа']");
     private final WebDriver driver;
     private static final String url = "https://stellarburgers.nomoreparties.site/";
 
@@ -69,15 +66,20 @@ public class MainPage {
         driver.findElement(filingsButton).click();
     }
 
-    public String getTextCratorBread() {
-        return driver.findElement(creatorBread).getText();
+
+
+    public void checkSaucesIsDisplayed() {
+        assertThat("Вкладка Соусы отображается", true,
+                equalTo(driver.findElement(By.xpath("//div[contains(span/text(),'Соусы') and contains(@class,'current')]")).isDisplayed()));
     }
 
-    public String getTextGalaxySauce() {
-        return driver.findElement(galaxySauce).getText();
+    public void checkFillingsIsDisplayed() {
+        assertThat("Вкладка Начинки отображается", true,
+                equalTo(driver.findElement(By.xpath("//div[contains(span/text(),'Начинки') and contains(@class,'current')]")).isDisplayed()));
     }
 
-    public String getTextLuminFiling() {
-        return driver.findElement(luminFiling).getText();
+    public void checkBunsIsDisplayed() {
+        assertThat("Вкладка Булки отображается", true,
+                equalTo(driver.findElement(By.xpath("//div[contains(span/text(),'Булки') and contains(@class,'current')]")).isDisplayed()));
     }
 }
