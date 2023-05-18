@@ -4,8 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 import pages.MainPage;
 
-import static org.junit.Assert.assertEquals;
-
 public class ConstructorTest extends BaseTest {
     MainPage mainPage = new MainPage(getDriver());
 
@@ -17,23 +15,25 @@ public class ConstructorTest extends BaseTest {
     @Test
     @DisplayName("Проверка перехода на вкладку Бургеры")
     public void clickOnBread() {
+        mainPage.clickSauceButton();
         mainPage.clickBreadButton();
-       assertEquals("Краторная булка N-200i", mainPage.getTextCratorBread());
+        mainPage.checkBunsIsDisplayed();
     }
 
     @Test
     @DisplayName("Проверка перехода на вкладку Соусы")
     public void clickOnSauce() {
         mainPage.clickSauceButton();
+        mainPage.checkSaucesIsDisplayed();
 
-        assertEquals("Соус традиционный галактический", mainPage.getTextGalaxySauce());
     }
 
     @Test
     @DisplayName("Проверка перехода на вкладку Начинки")
     public void clickOnFiling() {
-       mainPage.clickFilingsButton();
-        assertEquals("Филе Люминесцентного тетраодонтимформа", mainPage.getTextLuminFiling());
+        mainPage.clickFilingsButton();
+        mainPage.checkFillingsIsDisplayed();
+
     }
 
     @After
